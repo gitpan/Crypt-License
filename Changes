@@ -1,5 +1,8 @@
 Revision history for Perl extension Crypt-License
 
+2.01  Mon Nov 25 08:21:26 PST 2002
+	Repair type in Makefile.PL
+
 2.00  Sun Sep 22 16:15:16 PDT 2002
 	changed group name to Crypt
 

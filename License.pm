@@ -7,7 +7,7 @@ use vars qw($VERSION $ptr2_License);
 
 $ptr2_License = {'next' => ''};
 
-$VERSION = do { my @r = (q$Revision: 2.00 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 2.01 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 #	put the package name of the segement to print in DEBUG
 #	or 'ALL' to print all packages

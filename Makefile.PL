@@ -5,7 +5,7 @@ WriteMakefile(
     'NAME'		=> 'Crypt::License',
     'VERSION_FROM'	=> 'License.pm', # finds $VERSION
     'PREREQ_PM'		=> {'Crypt::CapnMidNite' => 1.00,
-			=>  'Crypt::C_LockTite'	 => 1.00,
+			    'Crypt::C_LockTite'	 => 1.00,
 			    'Filter::Util::Call' => 1.04,},
     'PM'		=> {'License.pm'	=> '$(INST_LIBDIR)/License.pm'},
     'MAN3PODS'		=> {'License.pod'	=> '$(INST_MAN3DIR)/Crypt::License.3'},

@@ -1,5 +1,7 @@
 Crypt::License
 
+Read INSTALL for information about missing module Crypt::LockTite
+
 This module set provides tools to effectively obfuscate perl source
 code and allow it to be decoded and executed based on host server, user,
 expiration date and other parameters. Further, decoding and execution can be
