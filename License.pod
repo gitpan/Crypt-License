@@ -93,11 +93,11 @@ load).
  CONT:	:contact person
  MAIL:	:email addy of contact
  ----------------------------------
- SERV:	:http server name		* optional
- HOST:	:hostname			* optional
- USER:	:calling user			* optional
- GROUP:	:calling group			* optional
- HOME:	:called from withing this path	* optional
+ SERV:	:http server name	* optional
+ HOST:	:hostname		* optional Sys::Hostname
+ USER:	:calling user		* optional
+ GROUP:	:calling group		* optional
+ HOME:	:called from within this path	* optional
  ----------------------------------
  DATE:	:creation date, mm-dd-yy | yyyy  or mmm dd yy | yyyy
  EXP:	:expiration		* optional
@@ -149,7 +149,7 @@ The following fields are returned to the %chk_vals hash from the host
 platform unless the fields are not present in the License file:
 
  SERV:	:http server name
- HOST:	:hostname
+ HOST:	:hostname as returned by Sys::Hostname::hostname
  USER:	:user
  GROUP:	:user
  HOME:	:server document root
@@ -289,8 +289,21 @@ modules by virtue of the PerlRequire or PerlModule directives in the users
 config file. B<BECAUSE of this>, the AuthCookie module B<MUST> have a
 B<next> $ptr2_License inserted in the beginning statements.
 
+B<HINT> use the Crypt::License::Util routines to insert the necessary
+pointer after a standard module is "used" but before the code is called.
+
+  i.e.
+  use Apache;
+  use Apache::Constants qw(:common :response :http);
+  use Apache::AuthCookie;
+  use vars qw($VERSION @ISA);
+  $VERSION = 1.00;
+  @ISA = qw(Apache::AuthCookie);
+  use Crypt::License::Util;
+  exportNext2('Apache::AuthCookie');
+
 =item 5
-With all this accomplished, all modules should load and de-crypt without
+With all this accomplished, crypted modules should load and de-crypt without
 problem.
 
 =back

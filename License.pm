@@ -3,11 +3,12 @@ package Crypt::License;
 use Filter::Util::Call 1.04;
 use Crypt::CapnMidNite 1.00;
 use Time::Local;
+use Sys::Hostname;
 use vars qw($VERSION $ptr2_License);
 
 $ptr2_License = {'next' => ''};
 
-$VERSION = do { my @r = (q$Revision: 2.02 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
+$VERSION = do { my @r = (q$Revision: 2.03 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r };
 
 #	put the package name of the segement to print in DEBUG
 #	or 'ALL' to print all packages
@@ -71,7 +72,7 @@ $user_info = sub {
 
 ##### code
 
-my $host = `/bin/hostname --long`;
+my $host = &Sys::Hostname::hostname;
 ($host = "\L$host") =~ s/\s+//g;
 
 &$user_info((caller)[1]);	# defaults
