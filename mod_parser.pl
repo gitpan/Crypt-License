@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# version 2.00 9-22-02 michael@bizsystems.com
+# version 2.01 12-19-02 michael@bizsystems.com
 # Copyright Michael Robinton and BizSystems
 # all rights reserved
 #
@@ -85,7 +85,7 @@ EOF
       my $key = $p->new_md5_crypt($seed)->encrypt($tmp);	# encrypt with seed
       $p->new_crypt($key)->encrypt($slurp);
     }
-    $slurp = "use Apache::License;\n" . $slurp;
+    $slurp = "use Crypt::License;\n" . $slurp;
   }
   print OUT $slurp;
   close OUT;
