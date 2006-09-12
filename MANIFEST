@@ -45,3 +45,4 @@ Util/t/exportNext2.t
 Util/t/private.t
 Util/t/require.t
 Util/t/util.t
+META.yml                                 Module meta-data (added by MakeMaker)

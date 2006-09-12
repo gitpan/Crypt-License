@@ -8,6 +8,7 @@
 
 BEGIN { $| = 1; print "1..16\n"; }
 END {print "not ok 1\n" unless $loaded;}
+use Time::Local;
 use License;
 $loaded = 1;
 print "ok 1\n";
@@ -22,12 +23,12 @@ my $test = 2;
 
 my %good_strings = (
 #	string			response
-	'12-23-89',		630489599,
-	'1 14 99',		916387199,
-	'7/1/02',		1025593199,
-	'June 6, 1987',		550047599,
-	'Dec 4 2000',		976003199,
-	'5-4 2005',		1115276399,
+        'June 6, 1987', timelocal(gmtime(550022399)),
+        '7/1/02',       timelocal(gmtime(1025567999)),
+        '1 14 99',      timelocal(gmtime(916358399)),
+        '5-4 2005',     timelocal(gmtime(1115251199)),
+        '12-23-89',     timelocal(gmtime(630460799)),
+        'Dec 4 2000',   timelocal(gmtime(975974399)),
 );
 
 my @bad_strings = (
@@ -42,7 +43,7 @@ my @bad_strings = (
 	'12 31 2070',
 );
 
-foreach(keys %good_strings) {
+foreach(sort keys %good_strings) {
   my $rv = Crypt::License::date2time($_);
   my $t;
   print "\n   sent $_ want ", ($t=localtime($good_strings{$_})),
